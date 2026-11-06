@@ -1,0 +1,1366 @@
+
+/* ==========================================
+   VITTAMONEY AUTHENTICATION
+   LOGIN + REGISTER + FORGOT PASSWORD
+========================================== */
+
+.vm-auth-page {
+  --auth-primary: #8D3A4A;
+  --auth-primary-dark: #702B39;
+  --auth-bg: #FBF7F8;
+  --auth-soft: #F8EDEF;
+  --auth-text: #302228;
+  --auth-muted: #796B70;
+  --auth-border: #E9DADE;
+
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 42px 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--auth-bg);
+  font-family: inherit;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.vm-auth-page *,
+.vm-auth-page *::before,
+.vm-auth-page *::after {
+  box-sizing: border-box;
+}
+
+/* BACKGROUND DECORATIONS */
+
+.vm-auth-background {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(12px);
+  z-index: -1;
+}
+
+.vm-auth-background--one {
+  width: 450px;
+  height: 450px;
+  top: -180px;
+  left: -170px;
+  background: rgba(141, 58, 74, 0.08);
+}
+
+.vm-auth-background--two {
+  width: 420px;
+  height: 420px;
+  bottom: -180px;
+  right: -160px;
+  background: rgba(197, 123, 137, 0.12);
+}
+
+/* ==========================================
+   MAIN CARD
+========================================== */
+
+.vm-auth-container {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+
+  width: 100%;
+  max-width: 1100px;
+  min-height: 640px;
+
+  background: #FFFFFF;
+  border: 1px solid rgba(141, 58, 74, 0.09);
+  border-radius: 24px;
+
+  box-shadow: 0 22px 75px rgba(70, 31, 42, 0.09);
+
+  overflow: hidden;
+}
+
+/* ==========================================
+   LEFT VISUAL PANEL
+========================================== */
+
+.vm-auth-visual {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+
+  min-height: 100%;
+
+  padding:25px 43px;
+
+  background:
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(255, 255, 255, 0.09),
+      transparent 38%
+    ),
+    linear-gradient(
+      145deg,
+      #8D3A4A 0%,
+      #702B39 55%,
+      #4E1B28 100%
+    );
+
+  color: #FFFFFF;
+  overflow: hidden;
+}
+
+.vm-auth-visual::before {
+  content: "";
+  position: absolute;
+
+  width: 470px;
+  height: 470px;
+
+  right: -270px;
+  top: 130px;
+
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 0 55px rgba(255, 255, 255, 0.025),
+    0 0 0 110px rgba(255, 255, 255, 0.025);
+
+  pointer-events: none;
+}
+
+.vm-auth-visual::after {
+  content: "";
+  position: absolute;
+
+  width: 180px;
+  height: 180px;
+
+  bottom: -95px;
+  left: -80px;
+
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.055);
+  pointer-events: none;
+}
+
+/* LOGO */
+
+.vm-auth-brand,
+.vm-auth-mobile-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  width: fit-content;
+
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  text-decoration: none;
+}
+
+.vm-auth-brand {
+  position: relative;
+  z-index: 2;
+  color: #FFFFFF;
+}
+
+.vm-auth-brand:hover {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.vm-auth-brand > span:last-child > span {
+  color: #F4BCC8;
+}
+
+.vm-auth-brand-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+
+  background: rgba(255, 255, 255, 0.13);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 12px;
+
+  color: #FFFFFF;
+  font-size: 21px;
+  font-weight: 900;
+}
+
+/* MAIN LEFT CONTENT */
+
+.vm-auth-visual-content {
+  position: relative;
+  z-index: 2;
+
+  padding: 60px 0;
+  /* margin-top: 179px; */
+
+}
+
+.vm-auth-eyebrow {
+  display: inline-block;
+
+  margin-bottom: 20px;
+
+  color: #FFD9E1;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.7px;
+}
+
+.vm-auth-visual-content h1 {
+  max-width: 420px;
+  margin: 0 0 23px;
+
+  color: #FFFFFF;
+  font-size: clamp(30px, 3.6vw, 45px);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -1.3px;
+}
+
+.vm-auth-visual-content h1 span {
+  color: #F4BCC8;
+}
+
+.vm-auth-visual-content > p {
+  max-width: 370px;
+
+  margin: 0 0 35px;
+
+  color: rgba(255, 255, 255, 0.79);
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+/* FEATURE LIST */
+
+.vm-auth-feature-list {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+}
+
+.vm-auth-feature-list > div {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.vm-auth-feature-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 35px;
+  height: 35px;
+  flex-shrink: 0;
+
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+
+  color: #FFE1E7;
+  font-size: 13px;
+}
+
+/* LEFT FOOTER */
+
+.vm-auth-visual-footer {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+/* ==========================================
+   RIGHT FORM PANEL
+========================================== */
+
+.vm-auth-form-side {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 0;
+  padding: 48px 55px;
+
+  background: #FFFFFF;
+}
+
+.vm-auth-form-wrapper {
+  width: 100%;
+  max-width: 420px;
+}
+
+.vm-auth-register-wrapper {
+  max-width: 445px;
+}
+
+/* BACK LINK */
+
+.vm-auth-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+
+  margin-bottom: 40px;
+
+  color: var(--auth-muted);
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+
+  transition: color 0.2s ease;
+}
+
+.vm-auth-back:hover {
+  color: var(--auth-primary);
+  text-decoration: none;
+}
+
+.vm-auth-mobile-brand {
+  display: none;
+  color: var(--auth-text);
+}
+
+.vm-auth-mobile-brand > span:last-child > span {
+  color: var(--auth-primary);
+}
+
+.vm-auth-mobile-brand .vm-auth-brand-icon {
+  background: var(--auth-primary);
+  border-color: var(--auth-primary);
+}
+
+/* HEADING */
+
+.vm-auth-heading {
+  margin-bottom: 32px;
+}
+
+.vm-auth-heading-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 8px 12px;
+  margin-bottom: 17px;
+
+  background: var(--auth-soft);
+  border-radius: 30px;
+
+  color: var(--auth-primary);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+}
+
+.vm-auth-heading h2 {
+  margin: 0 0 12px;
+
+  color: var(--auth-text);
+  font-size: clamp(26px, 3vw, 35px);
+  font-weight: 800;
+  letter-spacing: -0.9px;
+  line-height: 1.2;
+}
+
+.vm-auth-heading p {
+  margin: 0;
+
+  color: var(--auth-muted);
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+/* ==========================================
+   FORM
+========================================== */
+
+.vm-auth-form {
+  width: 100%;
+}
+
+.vm-auth-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  margin-bottom: 20px;
+}
+
+.vm-auth-field label {
+  color: var(--auth-text);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* INPUT WRAPPER */
+
+.vm-auth-input-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  width: 100%;
+  min-height: 51px;
+
+  padding: 0 14px;
+
+  background: #FFFFFF;
+  border: 1px solid var(--auth-border);
+  border-radius: 10px;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.vm-auth-input-box:hover {
+  border-color: #CFA9B2;
+}
+
+.vm-auth-input-box:focus-within {
+  border-color: var(--auth-primary);
+
+  box-shadow: 0 0 0 3px rgba(141, 58, 74, 0.08);
+}
+
+.vm-auth-input-box.has-error {
+  border-color: #D64550;
+}
+
+.vm-auth-input-box.has-error:focus-within {
+  box-shadow: 0 0 0 3px rgba(214, 69, 80, 0.09);
+}
+
+/* INPUT ICON */
+
+.vm-auth-input-icon {
+  flex-shrink: 0;
+  width: 17px;
+
+  color: #A58E95;
+  font-size: 15px;
+  text-align: center;
+}
+
+.vm-auth-input-box:focus-within .vm-auth-input-icon {
+  color: var(--auth-primary);
+}
+
+/* INPUT */
+
+.vm-auth-input-box input {
+  width: 100%;
+  min-width: 0;
+  min-height: 49px;
+
+  padding: 0;
+
+  background: transparent;
+  border: none;
+  border-radius: 0;
+
+  outline: none;
+  box-shadow: none;
+
+  color: var(--auth-text);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.vm-auth-input-box input:focus {
+  outline: none;
+  border: none;
+  box-shadow: none;
+  background: transparent;
+}
+
+.vm-auth-input-box input::placeholder {
+  color: #B4A5A9;
+  font-weight: 400;
+}
+
+/* EYE BUTTON */
+
+.vm-auth-eye-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+
+  padding: 0;
+
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+
+  color: #9A8990;
+  font-size: 15px;
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease;
+}
+
+.vm-auth-eye-btn:hover {
+  background: var(--auth-soft);
+  color: var(--auth-primary);
+}
+
+.vm-auth-eye-btn:focus-visible {
+  outline: 2px solid var(--auth-primary);
+  outline-offset: 2px;
+}
+
+/* ERROR AND HINT */
+
+.vm-auth-error {
+  color: #C82F40;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.vm-auth-hint {
+  color: var(--auth-muted);
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+/* ==========================================
+   FORGOT PASSWORD ROW
+========================================== */
+
+.vm-auth-forgot-row {
+  display: flex;
+  justify-content: flex-end;
+
+  margin: -3px 0 25px;
+}
+
+.vm-auth-text-btn {
+  padding: 0;
+
+  background: transparent;
+  border: none;
+
+  color: var(--auth-primary);
+  font-size: 12px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.vm-auth-text-btn:hover {
+  color: var(--auth-primary-dark);
+  text-decoration: underline;
+}
+
+/* ==========================================
+   SUBMIT BUTTON
+========================================== */
+
+.vm-auth-submit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  width: 100%;
+  min-height: 52px;
+
+  padding: 13px 20px;
+
+  background: var(--auth-primary);
+  border: 1px solid var(--auth-primary);
+  border-radius: 10px;
+
+  color: #FFFFFF;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.vm-auth-submit-btn:hover {
+  background: var(--auth-primary-dark);
+
+  box-shadow: 0 8px 20px rgba(141, 58, 74, 0.16);
+
+  transform: translateY(-1px);
+}
+
+.vm-auth-submit-btn:active {
+  transform: translateY(0);
+}
+
+.vm-auth-submit-btn:focus-visible {
+  outline: 3px solid rgba(141, 58, 74, 0.3);
+  outline-offset: 3px;
+}
+
+/* ==========================================
+   LOGIN / REGISTER SWITCH
+========================================== */
+
+.vm-auth-switch-text {
+  margin: 24px 0 0;
+
+  color: var(--auth-muted);
+  font-size: 12px;
+  text-align: center;
+  line-height: 1.8;
+}
+
+.vm-auth-switch-text a {
+  color: var(--auth-primary);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.vm-auth-switch-text a:hover {
+  color: var(--auth-primary-dark);
+  text-decoration: underline;
+}
+
+.vm-auth-bottom {
+  margin-top: 48px;
+
+  color: #AD9EA3;
+  font-size: 10px;
+  text-align: center;
+}
+
+/* ==========================================
+   STATUS / INFO MESSAGE
+========================================== */
+
+.vm-auth-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+
+  padding: 13px;
+  margin-bottom: 18px;
+
+  background: #F8EDEF;
+  border: 1px solid #E9CCD3;
+  border-radius: 9px;
+
+  color: var(--auth-primary-dark);
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.vm-auth-notice i {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ==========================================
+   FORGOT PASSWORD MODAL
+========================================== */
+
+.vm-auth-modal-overlay {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  background: rgba(27, 15, 20, 0.64);
+  backdrop-filter: blur(5px);
+
+  z-index: 99999;
+  overflow-y: auto;
+}
+
+.vm-auth-modal {
+  position: relative;
+
+  width: 100%;
+  max-width: 435px;
+  max-height: calc(100dvh - 40px);
+
+  margin: auto;
+  padding: 38px 32px 32px;
+
+  background: #FFFFFF;
+  border: 1px solid #F0E1E5;
+  border-radius: 18px;
+
+  box-shadow: 0 24px 75px rgba(0, 0, 0, 0.18);
+
+  overflow-y: auto;
+  animation: vmAuthModalAppear 0.25s ease;
+}
+
+@keyframes vmAuthModalAppear {
+  from {
+    opacity: 0;
+    transform: translateY(15px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* MODAL CLOSE X */
+
+.vm-auth-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 34px;
+  height: 34px;
+
+  background: #F8EDEF;
+  border: none;
+  border-radius: 9px;
+
+  color: var(--auth-primary);
+  font-size: 14px;
+
+  cursor: pointer;
+}
+
+.vm-auth-modal-close:hover {
+  background: #EDD9DE;
+}
+
+/* MODAL ICON */
+
+.vm-auth-modal-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 62px;
+  height: 62px;
+
+  margin: 0 auto 18px;
+
+  background: #F8EDEF;
+  border-radius: 18px;
+
+  color: var(--auth-primary);
+  font-size: 26px;
+}
+
+.vm-auth-modal h3 {
+  margin: 0 0 12px;
+
+  color: var(--auth-text);
+  font-size: 25px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.vm-auth-modal-description {
+  max-width: 330px;
+
+  margin: 0 auto 28px;
+
+  color: var(--auth-muted);
+  font-size: 12px;
+  line-height: 1.8;
+  text-align: center;
+}
+
+.vm-auth-modal-cancel {
+  display: block;
+
+  width: 100%;
+  min-height: 45px;
+
+  margin-top: 13px;
+  padding: 10px;
+
+  background: #FFFFFF;
+  border: 1px solid var(--auth-border);
+  border-radius: 9px;
+
+  color: var(--auth-text);
+  font-size: 12px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.vm-auth-modal-cancel:hover {
+  background: var(--auth-bg);
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 991px) {
+  .vm-auth-page {
+    padding: 25px 15px;
+  }
+
+  .vm-auth-container {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  }
+
+  .vm-auth-visual {
+    padding: 30px 25px;
+  }
+
+  .vm-auth-form-side {
+    padding: 0px 30px;
+  }
+
+  .vm-auth-visual-content h1 {
+    font-size: 30px;
+  }
+
+  .vm-auth-visual-content > p {
+    font-size: 12px;
+  }
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 767px) {
+  .vm-auth-page {
+    align-items: flex-start;
+    min-height: 100dvh;
+    padding: 16px 12px 30px;
+  }
+
+  .vm-auth-container {
+    display: block;
+
+    max-width: 520px;
+    min-height: auto;
+
+    border-radius: 16px;
+  }
+
+  .vm-auth-visual {
+    display: none;
+  }
+
+  .vm-auth-form-side {
+    padding: 27px 23px 30px;
+  }
+
+  .vm-auth-form-wrapper,
+  .vm-auth-register-wrapper {
+    max-width: 100%;
+  }
+
+  .vm-auth-back {
+    margin-bottom: 22px;
+    font-size: 11px;
+  }
+
+  .vm-auth-mobile-brand {
+    display: inline-flex;
+    margin-bottom: 30px;
+    font-size: 22px;
+  }
+
+  .vm-auth-heading {
+    margin-bottom: 27px;
+  }
+
+  .vm-auth-heading h2 {
+    font-size: 28px;
+  }
+
+  .vm-auth-heading p {
+    font-size: 12px;
+  }
+
+  .vm-auth-field {
+    margin-bottom: 17px;
+  }
+
+  .vm-auth-input-box {
+    min-height: 49px;
+  }
+
+  .vm-auth-input-box input {
+    min-height: 47px;
+    font-size: 16px;
+  }
+
+  .vm-auth-bottom {
+    margin-top: 35px;
+  }
+
+  .vm-auth-modal {
+    max-width: 420px;
+    padding: 35px 22px 25px;
+  }
+}
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media (max-width: 399px) {
+  .vm-auth-page {
+    padding: 10px 8px 20px;
+  }
+
+  .vm-auth-container {
+    border-radius: 13px;
+  }
+
+  .vm-auth-form-side {
+    padding: 24px 17px 25px;
+  }
+
+  .vm-auth-mobile-brand {
+    margin-bottom: 25px;
+  }
+
+  .vm-auth-heading h2 {
+    font-size: 26px;
+  }
+
+  .vm-auth-heading-badge {
+    font-size: 9px;
+  }
+
+  .vm-auth-modal-overlay {
+    padding: 12px;
+  }
+
+  .vm-auth-modal {
+    padding: 33px 17px 22px;
+  }
+
+  .vm-auth-modal h3 {
+    font-size: 22px;
+  }
+}
+
+/* ==========================================
+   ACCESSIBILITY
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .vm-auth-page *,
+  .vm-auth-page *::before,
+  .vm-auth-page *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+
+
+
+
+.vm-auth-submit-btn:disabled,
+.vm-auth-modal-close:disabled,
+.vm-auth-modal-cancel:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================
+   COMPACT REGISTER PAGE ONLY
+   LOGIN PAGE REMAINS UNCHANGED
+========================================== */
+
+.vm-auth-register-page {
+  padding: 20px 16px;
+}
+
+/* SMALLER MAIN CARD */
+
+.vm-auth-register-page .vm-auth-container {
+  max-width: 900px;
+  min-height: auto;
+
+  grid-template-columns: 0.9fr 1.1fr;
+
+  border-radius: 18px;
+}
+
+/* LEFT BURGUNDY PANEL */
+
+.vm-auth-register-page .vm-auth-visual {
+  padding: 47px 33px;
+}
+
+.vm-auth-register-page .vm-auth-visual-content {
+  padding: 20px 0;
+}
+
+.vm-auth-register-page .vm-auth-visual-content h1 {
+  font-size: clamp(25px, 2.8vw, 34px);
+  line-height: 1.22;
+  margin-bottom: 20px;
+}
+
+.vm-auth-register-page .vm-auth-visual-content > p {
+  font-size: 12px;
+  line-height: 1.65;
+  margin-bottom: 20px;
+}
+
+.vm-auth-register-page .vm-auth-eyebrow {
+  margin-bottom: 12px;
+}
+
+.vm-auth-register-page .vm-auth-feature-list {
+  gap: 11px;
+}
+
+.vm-auth-register-page .vm-auth-feature-icon {
+  width: 31px;
+  height: 31px;
+}
+
+/* RIGHT REGISTER FORM */
+
+.vm-auth-register-page .vm-auth-form-side {
+  padding: 25px 38px;
+}
+
+.vm-auth-register-page .vm-auth-register-wrapper {
+  max-width: 380px;
+}
+
+/* BACK BUTTON */
+
+.vm-auth-register-page .vm-auth-back {
+  margin-bottom: 18px;
+}
+
+/* HEADING */
+
+.vm-auth-register-page .vm-auth-heading {
+  margin-bottom: 18px;
+}
+
+.vm-auth-register-page .vm-auth-heading-badge {
+  margin-bottom: 9px;
+  padding: 6px 11px;
+  font-size: 9px;
+}
+
+.vm-auth-register-page .vm-auth-heading h2 {
+  font-size: 27px;
+  margin-bottom: 6px;
+}
+
+.vm-auth-register-page .vm-auth-heading p {
+  font-size: 12px;
+}
+
+/* FIELDS */
+
+.vm-auth-register-page .vm-auth-field {
+  gap: 5px;
+  margin-bottom: 12px;
+}
+
+.vm-auth-register-page .vm-auth-field label {
+  font-size: 11px;
+}
+
+/* INPUT HEIGHT */
+
+.vm-auth-register-page .vm-auth-input-box {
+  min-height: 42px;
+  padding: 0 11px;
+  gap: 9px;
+  border-radius: 8px;
+}
+
+.vm-auth-register-page .vm-auth-input-box input {
+  min-height: 40px;
+  font-size: 12px;
+}
+
+.vm-auth-register-page .vm-auth-input-icon {
+  font-size: 13px;
+}
+
+/* EYE BUTTON */
+
+.vm-auth-register-page .vm-auth-eye-btn {
+  width: 30px;
+  height: 30px;
+  font-size: 13px;
+}
+
+/* PASSWORD HINT */
+
+.vm-auth-register-page .vm-auth-hint {
+  font-size: 9px;
+}
+
+/* REGISTER BUTTON */
+
+.vm-auth-register-page .vm-auth-submit-btn {
+  min-height: 43px;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 12px;
+}
+
+/* LOGIN LINK */
+
+.vm-auth-register-page .vm-auth-switch-text {
+  margin-top: 14px;
+  font-size: 11px;
+}
+
+/* COPYRIGHT */
+
+.vm-auth-register-page .vm-auth-bottom {
+  margin-top: 19px;
+  font-size: 9px;
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 991px) {
+  .vm-auth-register-page .vm-auth-container {
+    max-width: 800px;
+    grid-template-columns: 0.85fr 1.15fr;
+  }
+
+  .vm-auth-register-page .vm-auth-visual {
+    padding: 24px;
+  }
+
+  .vm-auth-register-page .vm-auth-form-side {
+    padding: 25px;
+  }
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 767px) {
+  .vm-auth-register-page {
+    padding: 12px;
+  }
+
+  .vm-auth-register-page .vm-auth-container {
+    display: block;
+    max-width: 440px;
+    min-height: auto;
+    border-radius: 14px;
+  }
+
+  .vm-auth-register-page .vm-auth-visual {
+    display: none;
+  }
+
+  .vm-auth-register-page .vm-auth-form-side {
+    padding: 22px 20px;
+  }
+
+  .vm-auth-register-page .vm-auth-register-wrapper {
+    max-width: 100%;
+  }
+
+  .vm-auth-register-page .vm-auth-mobile-brand {
+    margin-bottom: 17px;
+    font-size: 20px;
+  }
+
+  .vm-auth-register-page .vm-auth-heading h2 {
+    font-size: 25px;
+  }
+
+  .vm-auth-register-page .vm-auth-input-box input {
+    font-size: 16px;
+  }
+
+  .vm-auth-register-page .vm-auth-field {
+    margin-bottom: 12px;
+  }
+}
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media (max-width: 399px) {
+  .vm-auth-register-page {
+    padding: 8px;
+  }
+
+  .vm-auth-register-page .vm-auth-form-side {
+    padding: 19px 15px;
+  }
+
+  .vm-auth-register-page .vm-auth-heading h2 {
+    font-size: 23px;
+  }
+
+  .vm-auth-register-page .vm-auth-input-box {
+    min-height: 42px;
+  }
+}
+
+
+/* VITTAMONEY AUTH BRAND LOGO */
+
+.vm-auth-brand-logo {
+  width: 126px;
+  height: 46px;
+  object-fit: contain;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+  display: flex;
+  margin-left:23px
+  
+}
+
+.vm-auth-brand:hover .vm-auth-brand-logo {
+  transform: scale(1.06);
+}
+
+@media (max-width: 767px) {
+  .vm-auth-brand-logo {
+    width: 38px;
+    height: 38px;
+  }
+}
+
+
+
+
+
+
+/* ==========Register============ */
+
+
+/* ==========================================
+   REGISTER PAGE - UNIQUE BRAND LOGO
+========================================== */
+
+.vm-register-brand-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: fit-content;
+  max-width: 100%;
+
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.vm-register-brand-logo {
+  display: block;
+  width: 160px;
+  height: 65px;
+  max-width: 100%;
+
+  object-fit: contain;
+  object-position: left center;
+
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease;
+}
+
+.vm-register-brand-link:hover .vm-register-brand-logo {
+  transform: scale(1.04);
+  filter: drop-shadow(0 4px 10px rgba(141, 58, 74, 0.18));
+}
+
+.vm-register-brand-link:focus-visible {
+  outline: 3px solid rgba(141, 58, 74, 0.3);
+  outline-offset: 5px;
+  border-radius: 8px;
+}
+
+/* TABLET */
+
+@media (max-width: 991px) {
+  .vm-register-brand-logo {
+    width: 140px;
+    height: 58px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 767px) {
+  .vm-register-brand-logo {
+    width: 125px;
+    height: 52px;
+  }
+}
+
+
+
+
+

@@ -1,0 +1,1064 @@
+
+/* ==========================================
+   VITTAMONEY PORTFOLIO
+   WHITE + BURGUNDY THEME
+========================================== */
+
+.vm-portfolio-page {
+  --pf-bg: #FBF7F8;
+  --pf-card: #FFFFFF;
+  --pf-card-soft: #F8EDEF;
+  --pf-border: #EBDDE1;
+  --pf-text: #302228;
+  --pf-muted: #796B70;
+  --pf-primary: #8D3A4A;
+  --pf-primary-dark: #702B39;
+  --pf-green: #168A60;
+  --pf-red: #C74355;
+
+  position: relative;
+  min-height: 100vh;
+  padding: 85px 0 90px;
+
+  background:
+    radial-gradient(
+      ellipse 65% 30% at 50% 0%,
+      rgba(141, 58, 74, 0.065),
+      transparent 85%
+    ),
+    linear-gradient(
+      180deg,
+      #FBF7F8 0%,
+      #FFFFFF 55%,
+      #FBF7F8 100%
+    );
+
+  color: var(--pf-text);
+  overflow-x: clip;
+}
+
+.vm-portfolio-page *,
+.vm-portfolio-page *::before,
+.vm-portfolio-page *::after {
+  box-sizing: border-box;
+}
+
+.vm-portfolio-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+}
+
+/* ==========================================
+   PAGE HEADING
+========================================== */
+
+.vm-portfolio-top {
+  text-align: center;
+  margin-bottom: 42px;
+}
+
+.vm-portfolio-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 14px;
+
+  color: var(--pf-primary);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+}
+
+.vm-portfolio-title {
+  margin: 0 0 12px;
+
+  color: var(--pf-text);
+  font-size: clamp(32px, 4.5vw, 47px);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -1px;
+}
+
+.vm-portfolio-top p {
+  margin: 0;
+  color: var(--pf-muted);
+  font-size: 13px;
+}
+
+/* ==========================================
+   MAIN TWO-COLUMN GRID
+========================================== */
+
+.vm-portfolio-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 375px) minmax(0, 1fr);
+  align-items: start;
+  gap: 22px;
+}
+
+.vm-portfolio-right {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: 22px;
+}
+
+/* ==========================================
+   SHARED CARDS
+========================================== */
+
+.vm-profile-card,
+.vm-summary-card,
+.vm-portfolio-box {
+  min-width: 0;
+
+  background: var(--pf-card);
+  border: 1px solid var(--pf-border);
+  border-radius: 16px;
+  overflow: hidden;
+
+  box-shadow:
+    0 8px 30px rgba(112, 43, 57, 0.055);
+}
+
+/* ==========================================
+   PROFILE CARD
+========================================== */
+
+.vm-profile-card {
+  min-height: 470px;
+}
+
+.vm-profile-header,
+.vm-summary-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  min-height: 52px;
+  padding: 14px 20px;
+
+  background: #F8EDEF;
+  border-bottom: 1px solid #EBDDE1;
+
+  color: var(--pf-primary);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.vm-profile-header h3 {
+  margin: 0;
+
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.vm-profile-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 26px 18px 32px;
+}
+
+.vm-profile-image-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+
+  width: 100%;
+}
+
+/* ==========================================
+   PROFILE IMAGE
+========================================== */
+
+.vm-profile-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 88px;
+  height: 88px;
+
+  background: #F8EDEF;
+  border: 2px solid #8D3A4A;
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 0 6px rgba(141, 58, 74, 0.07),
+    0 10px 25px rgba(141, 58, 74, 0.10);
+
+  overflow: hidden;
+}
+
+.vm-profile-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.vm-profile-image > i {
+  font-size: 35px;
+  font-weight: 300;
+  color: var(--pf-primary);
+}
+
+/* ==========================================
+   CHANGE PHOTO BUTTON
+========================================== */
+
+.vm-change-photo-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 10px 16px;
+
+  background: var(--pf-primary);
+  border: 1px solid var(--pf-primary);
+  border-radius: 9px;
+
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.2;
+
+  cursor: pointer;
+
+  box-shadow: 0 6px 16px rgba(141, 58, 74, 0.12);
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.vm-change-photo-btn:hover {
+  background: var(--pf-primary-dark);
+  border-color: var(--pf-primary-dark);
+  color: #FFFFFF;
+  transform: translateY(-1px);
+}
+
+.vm-change-photo-btn:focus-visible {
+  outline: 3px solid rgba(141, 58, 74, 0.25);
+  outline-offset: 3px;
+}
+
+.vm-profile-name {
+  margin: 20px 0 18px;
+
+  color: var(--pf-text);
+  font-size: 19px;
+  font-weight: 800;
+  text-align: center;
+}
+
+/* ==========================================
+   PROFILE CONTACT DETAILS
+========================================== */
+
+.vm-profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+
+  width: 100%;
+}
+
+.vm-info-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  min-height: 76px;
+  padding: 14px;
+
+  background: #FBF7F8;
+  border: 1px solid #EFE2E6;
+  border-radius: 11px;
+
+  text-align: center;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.vm-info-box:hover {
+  background: #F8EDEF;
+  border-color: #DFBBC4;
+}
+
+.vm-info-box i {
+  color: var(--pf-primary);
+  font-size: 17px;
+}
+
+.vm-info-box span {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+
+  color: var(--pf-text);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+/* ==========================================
+   ACCOUNT SUMMARY
+========================================== */
+
+.vm-summary-header {
+  min-height: 53px;
+}
+
+.vm-summary-body {
+  padding: 19px 20px;
+}
+
+.vm-summary-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+
+  min-height: 48px;
+
+  color: var(--pf-text);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.vm-summary-row strong {
+  font-size: 15px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.vm-summary-divider {
+  height: 1px;
+  margin: 3px 0;
+  background: var(--pf-border);
+}
+
+/* ==========================================
+   POSITIVE / NEGATIVE AMOUNTS
+========================================== */
+
+.vm-amount-positive {
+  color: var(--pf-green) !important;
+}
+
+.vm-amount-negative {
+  color: var(--pf-red) !important;
+}
+
+/* ==========================================
+   UNLISTED
+========================================== */
+
+.vm-portfolio-box {
+  padding: 20px;
+}
+
+.vm-portfolio-box-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  margin-bottom: 16px;
+}
+
+.vm-portfolio-box-header h3 {
+  margin: 0;
+
+  color: var(--pf-text);
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.vm-portfolio-count {
+  padding: 7px 12px;
+
+  background: #F8EDEF;
+  border: 1px solid #EBDDE1;
+  border-radius: 25px;
+
+  color: var(--pf-primary);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.vm-portfolio-box-content {
+  width: 100%;
+}
+
+/* ==========================================
+   EMPTY HOLDINGS
+========================================== */
+
+.vm-empty-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  width: 100%;
+  min-height: 64px;
+  padding: 16px;
+
+  background: #FBF7F8;
+  border: 1px dashed #DCC5CB;
+  border-radius: 11px;
+
+  color: #938188;
+  font-size: 12px;
+}
+
+.vm-empty-bar i {
+  color: #B38A96;
+  font-size: 16px;
+}
+
+/* ==========================================
+   TRANSACTION ROWS
+========================================== */
+
+.vm-transaction-item + .vm-transaction-item {
+  margin-top: 12px;
+}
+
+.vm-transaction-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+
+  width: 100%;
+  min-height: 68px;
+  padding: 12px 15px;
+
+  background: #FBF7F8;
+  border: 1px solid #EBDDE1;
+  border-radius: 11px;
+
+  color: var(--pf-text);
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.vm-transaction-row:hover {
+  background: #F8EDEF;
+  border-color: #D8B3BC;
+}
+
+.vm-transaction-row:focus-visible {
+  outline: 2px solid var(--pf-primary);
+  outline-offset: 3px;
+}
+
+.vm-transaction-company,
+.vm-transaction-right {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+
+  min-width: 0;
+}
+
+.vm-transaction-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 45px;
+  height: 45px;
+  flex-shrink: 0;
+
+  background: #FFFFFF;
+  border: 1px solid #EADDE1;
+  border-radius: 50%;
+
+  overflow: hidden;
+  color: var(--pf-primary);
+}
+
+.vm-transaction-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.vm-transaction-name {
+  color: var(--pf-text);
+  font-size: 12px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.vm-transaction-right {
+  flex-shrink: 0;
+}
+
+.vm-transaction-right > span {
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.vm-transaction-right > i {
+  color: #9F7D87;
+  font-size: 11px;
+}
+
+/* ==========================================
+   EXPANDED TRANSACTION DETAILS
+========================================== */
+
+.vm-transaction-details {
+  padding: 19px;
+  margin-top: 8px;
+
+  background: #FFFFFF;
+  border: 1px solid #EBDDE1;
+  border-radius: 11px;
+
+  box-shadow: 0 4px 15px rgba(112, 43, 57, 0.035);
+}
+
+.vm-transaction-detail-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+
+  padding: 11px 0;
+
+  border-bottom: 1px solid #F0E5E8;
+
+  color: var(--pf-muted);
+  font-size: 12px;
+}
+
+.vm-transaction-detail-row strong {
+  color: var(--pf-text);
+  font-weight: 700;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+.vm-transaction-detail-row:last-of-type {
+  border-bottom: none;
+}
+
+.vm-transaction-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 20px;
+
+  color: var(--pf-muted);
+  font-size: 12px;
+}
+
+.vm-transaction-loading i {
+  color: var(--pf-primary);
+}
+
+.vm-sell-btn {
+  margin-top: 16px;
+  padding: 11px 23px;
+}
+
+/* ==========================================
+   LOADING STATE
+========================================== */
+
+.vm-portfolio-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+
+  min-height: 450px;
+}
+
+.vm-portfolio-loading i {
+  color: var(--pf-primary);
+  font-size: 32px;
+}
+
+.vm-portfolio-loading p {
+  color: var(--pf-muted);
+  font-size: 13px;
+}
+
+/* ==========================================
+   API ERROR
+========================================== */
+
+.vm-portfolio-error {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+
+  padding: 15px;
+  margin-bottom: 24px;
+
+  background: #FFF0F2;
+  border: 1px solid #E8B6C0;
+  border-radius: 10px;
+
+  color: #A52B45;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+/* ==========================================
+   SELL ENQUIRY MODAL
+========================================== */
+
+.vm-portfolio-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 18px;
+
+  background: rgba(48, 34, 40, 0.65);
+  backdrop-filter: blur(5px);
+
+  overflow-y: auto;
+}
+
+.vm-portfolio-modal {
+  width: 100%;
+  max-width: 480px;
+  max-height: calc(100dvh - 36px);
+
+  margin: auto;
+
+  background: #FFFFFF;
+  border: 1px solid #EBDDE1;
+  border-radius: 16px;
+
+  color: var(--pf-text);
+
+  box-shadow: 0 20px 70px rgba(48, 34, 40, 0.20);
+  overflow-y: auto;
+}
+
+.vm-portfolio-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 15px;
+
+  padding: 23px;
+
+  background: #FBF7F8;
+  border-bottom: 1px solid #EBDDE1;
+}
+
+.vm-portfolio-modal-badge {
+  display: inline-block;
+  margin-bottom: 9px;
+
+  color: var(--pf-primary);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.vm-portfolio-modal-header h3 {
+  margin: 0;
+
+  color: var(--pf-text);
+  font-size: 21px;
+  font-weight: 800;
+}
+
+.vm-portfolio-modal-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 35px;
+  height: 35px;
+  flex-shrink: 0;
+
+  background: #F8EDEF;
+  border: none;
+  border-radius: 9px;
+
+  color: var(--pf-primary);
+  cursor: pointer;
+}
+
+.vm-portfolio-modal-close:hover {
+  background: #EFDCE1;
+}
+
+.vm-portfolio-modal-body {
+  padding: 23px;
+}
+
+.vm-portfolio-modal-detail {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+
+  margin-bottom: 13px;
+
+  color: var(--pf-muted);
+  font-size: 12px;
+}
+
+.vm-portfolio-modal-detail strong {
+  color: var(--pf-text);
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+.vm-portfolio-field {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+
+  margin-top: 20px;
+}
+
+.vm-portfolio-field label {
+  color: var(--pf-text);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.vm-portfolio-field input,
+.vm-portfolio-field textarea {
+  display: block;
+
+  width: 100%;
+  min-height: 45px;
+
+  padding: 11px 13px;
+
+  background: #FFFFFF;
+  border: 1px solid #DFCDD2;
+  border-radius: 9px;
+
+  color: var(--pf-text);
+  font-family: inherit;
+  font-size: 13px;
+
+  outline: none;
+}
+
+.vm-portfolio-field input:focus,
+.vm-portfolio-field textarea:focus {
+  border-color: var(--pf-primary);
+  box-shadow: 0 0 0 3px rgba(141, 58, 74, 0.08);
+}
+
+.vm-portfolio-field input::placeholder,
+.vm-portfolio-field textarea::placeholder {
+  color: #B2A0A6;
+}
+
+.vm-portfolio-field textarea {
+  resize: vertical;
+}
+
+.vm-portfolio-form-error {
+  margin: 12px 0 0;
+  color: var(--pf-red);
+  font-size: 12px;
+}
+
+.vm-portfolio-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
+
+  padding: 18px 23px;
+
+  background: #FBF7F8;
+  border-top: 1px solid #EBDDE1;
+}
+
+.vm-portfolio-cancel,
+.vm-portfolio-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  padding: 11px 17px;
+  border-radius: 9px;
+
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.vm-portfolio-cancel {
+  background: #FFFFFF;
+  border: 1px solid #DFCDD2;
+  color: var(--pf-text);
+}
+
+.vm-portfolio-cancel:hover {
+  background: #F8EDEF;
+}
+
+.vm-portfolio-submit {
+  background: var(--pf-primary);
+  border: 1px solid var(--pf-primary);
+  color: #FFFFFF;
+}
+
+.vm-portfolio-submit:hover {
+  background: var(--pf-primary-dark);
+  border-color: var(--pf-primary-dark);
+}
+
+.vm-portfolio-cancel:disabled,
+.vm-portfolio-submit:disabled,
+.vm-portfolio-modal-close:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ==========================================
+   TABLET RESPONSIVE
+========================================== */
+
+@media (max-width: 991px) {
+  .vm-portfolio-page {
+    padding: 65px 0 70px;
+  }
+
+  .vm-portfolio-grid {
+    grid-template-columns: minmax(0, 285px) minmax(0, 1fr);
+    gap: 17px;
+  }
+
+  .vm-portfolio-right {
+    gap: 17px;
+  }
+
+  .vm-profile-card {
+    min-height: 450px;
+  }
+
+  .vm-transaction-right {
+    gap: 7px;
+  }
+}
+
+/* ==========================================
+   MOBILE RESPONSIVE
+========================================== */
+
+@media (max-width: 767px) {
+  .vm-portfolio-page {
+    padding: 45px 0 60px;
+  }
+
+  .vm-portfolio-container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .vm-portfolio-top {
+    margin-bottom: 27px;
+  }
+
+  .vm-portfolio-title {
+    font-size: 33px;
+  }
+
+  .vm-portfolio-top p {
+    font-size: 12px;
+    line-height: 1.7;
+  }
+
+  .vm-portfolio-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 17px;
+  }
+
+  .vm-profile-card {
+    min-height: auto;
+  }
+
+  .vm-profile-body {
+    padding: 24px 18px;
+  }
+
+  .vm-profile-info {
+    max-width: 480px;
+  }
+
+  .vm-portfolio-right {
+    gap: 17px;
+  }
+
+  .vm-portfolio-box {
+    padding: 15px;
+  }
+
+  .vm-portfolio-count {
+    font-size: 9px;
+  }
+
+  .vm-transaction-row {
+    padding: 12px;
+    gap: 8px;
+  }
+
+  .vm-transaction-logo {
+    width: 36px;
+    height: 36px;
+  }
+
+  .vm-transaction-company {
+    gap: 8px;
+  }
+
+  .vm-transaction-name {
+    font-size: 11px;
+  }
+
+  .vm-transaction-right > span {
+    font-size: 10px;
+  }
+
+  .vm-portfolio-modal {
+    max-width: 100%;
+  }
+}
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media (max-width: 399px) {
+  .vm-portfolio-title {
+    font-size: 29px;
+  }
+
+  .vm-portfolio-box-header h3 {
+    font-size: 14px;
+  }
+
+  .vm-transaction-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .vm-transaction-right {
+    align-self: flex-end;
+  }
+
+  .vm-summary-row {
+    font-size: 11px;
+  }
+
+  .vm-summary-row strong {
+    font-size: 12px;
+  }
+
+  .vm-portfolio-modal-body,
+  .vm-portfolio-modal-header,
+  .vm-portfolio-modal-footer {
+    padding: 17px;
+  }
+}
+
+/* ==========================================
+   REDUCED MOTION
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .vm-portfolio-page * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+
+
+
+
+
+
+/* ==========================================
+   PROFILE LOGOUT BUTTON
+   WHITE + BURGUNDY THEME
+========================================== */
+
+.vm-profile-logout-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  width: 100%;
+  min-height: 45px;
+
+  margin-top: 24px;
+  padding: 12px 18px;
+
+  background: #8D3A4A;
+  border: 1px solid #8D3A4A;
+  border-radius: 10px;
+
+  color: #FFFFFF;
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.vm-profile-logout-btn:hover {
+  background: #702B39;
+  border-color: #702B39;
+  color: #FFFFFF;
+}
+
+.vm-profile-logout-btn:focus-visible {
+  outline: 3px solid rgba(141, 58, 74, 0.25);
+  outline-offset: 3px;
+}
+
+@media (max-width: 767px) {
+  .vm-profile-logout-btn {
+    margin-top: 20px;
+    min-height: 43px;
+    font-size: 12px;
+  }
+}

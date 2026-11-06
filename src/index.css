@@ -1,0 +1,315 @@
+/* ================================================================
+   VITTAMONEY — GLOBAL DESIGN SYSTEM
+   Burgundy & White Premium Fintech Theme
+   ================================================================ */
+
+/* ── Design Tokens ─────────────────────────────────────────────── */
+
+h1 , h2 , h3 , h4 , h5 , h6  , a , p   , li , ul , ol , button , input , textarea , span , label , div , section , article , header , footer , nav , main , aside {
+   font-family: "Poppins", sans-serif !important; 
+
+}
+
+
+:root {
+  /* Primary backgrounds */
+  --color-white: #FFFFFF;
+  --color-background: #FFFFFF;
+  --color-background-soft: #FBF4F5;
+
+  /* Burgundy brand colors */
+  --color-primary: #8D3A4A;
+  --color-secondary: #C57B89;
+  --color-accent: #702B39;
+
+  /* Text colors */
+  --color-text-primary: #362126;
+  --color-text-secondary: #70565C;
+  --color-text-muted: #947C82;
+  --color-text-inverse: #FFFFFF;
+
+  /* Borders */
+  --color-border: #ECDADC;
+  --color-border-hover: #C57B89;
+
+  /* Interactive states */
+  --color-button-primary: #8D3A4A;
+  --color-button-hover: #702B39;
+  --color-button-secondary: #FBF4F5;
+
+  /* Glassmorphism */
+  --color-glass-background: rgba(255, 255, 255, 0.76);
+  --color-glass-border: rgba(141, 58, 74, 0.15);
+
+  /* Shadows */
+  --shadow-card: 0 8px 30px rgba(54, 33, 38, 0.06);
+  --shadow-card-hover: 0 16px 40px rgba(112, 43, 57, 0.12);
+  --shadow-glass: 0 12px 40px rgba(112, 43, 57, 0.08);
+
+  /* Border radius */
+  --radius-small: 8px;
+  --radius-medium: 14px;
+  --radius-large: 20px;
+  --radius-extra-large: 28px;
+
+  /* Layout */
+  --container-width: 1240px;
+  --section-spacing-desktop: 104px;
+  --section-spacing-tablet: 76px;
+  --section-spacing-mobile: 56px;
+
+
+}
+
+/* ── Reset & Base ────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--color-text-primary);
+  background-color: var(--color-background);
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  font-family: var(--font-body);
+  border: none;
+  background: none;
+}
+
+/* ── Typography ──────────────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-text-primary);
+  line-height: 1.2;
+}
+
+h1 { font-size: 68px; font-weight: 800; line-height: 1.08; letter-spacing: -2px; }
+h2 { font-size: 42px; font-weight: 750; letter-spacing: -0.5px; }
+h3 { font-size: 20px; font-weight: 700; line-height: 1.4; }
+h4 { font-size: 16px; font-weight: 600; }
+
+p {
+  font-family: var(--font-body);
+  color: var(--color-text-secondary);
+  line-height: 1.75;
+}
+
+/* ── Container ───────────────────────────────────────────────────── */
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* ── Eyebrow Label ───────────────────────────────────────────────── */
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  background: var(--color-background-soft);
+  padding: 9px 13px;
+  border-radius: 6px;
+}
+
+/* ── Buttons ─────────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.4;
+  border-radius: 10px;
+  padding: 15px 24px;
+  transition: all 220ms ease;
+  white-space: nowrap;
+  cursor: pointer;
+  min-height: 46px;
+}
+
+.btn-primary {
+  background: var(--color-button-primary);
+  color: var(--color-text-inverse);
+  border: none;
+  box-shadow: 0 4px 14px rgba(141, 58, 74, 0.25);
+}
+
+.btn-primary:hover {
+  background: var(--color-button-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(112, 43, 57, 0.3);
+}
+
+.btn-secondary {
+  background: var(--color-white);
+  color: var(--color-accent);
+  border: 1px solid var(--color-border);
+  padding: 14px 23px;
+}
+
+.btn-secondary:hover {
+  background: var(--color-background-soft);
+  border-color: var(--color-border-hover);
+  color: var(--color-primary);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--color-primary);
+  border: 1.5px solid var(--color-primary);
+  padding: 14px 23px;
+}
+
+.btn-outline:hover {
+  background: var(--color-background-soft);
+}
+
+/* ── Section Spacing ─────────────────────────────────────────────── */
+.section {
+  padding: var(--section-spacing-desktop) 0;
+}
+
+.section-soft {
+  background: var(--color-background-soft);
+}
+
+.section-header {
+  margin-bottom: 56px;
+}
+
+.section-header.centered {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section-header .section-eyebrow {
+  margin-bottom: 16px;
+}
+
+.section-header h2 {
+  margin-bottom: 16px;
+}
+
+.section-header p {
+  max-width: 620px;
+  font-size: 16px;
+}
+
+/* ── Cards ────────────────────────────────────────────────────────── */
+.card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: var(--shadow-card);
+  transition: transform 250ms ease, box-shadow 250ms ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* ── Glass morphism ──────────────────────────────────────────────── */
+.glass {
+  /* background: var(--color-glass-background); */
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-large);
+  box-shadow: var(--shadow-glass);
+}
+
+/* ── Utilities ───────────────────────────────────────────────────── */
+.text-primary   { color: var(--color-primary); }
+.text-secondary { color: var(--color-secondary); }
+.text-accent    { color: var(--color-accent); }
+.text-muted     { color: var(--color-text-muted); }
+.text-bold      { font-weight: 700; }
+
+.bg-white       { background-color: var(--color-white); }
+.bg-soft        { background-color: var(--color-background-soft); }
+.border-theme   { border-color: var(--color-border); }
+
+.flex         { display: flex; }
+.flex-center  { display: flex; align-items: center; justify-content: center; }
+.gap-8        { gap: 8px; }
+.gap-12       { gap: 12px; }
+.gap-16       { gap: 16px; }
+
+/* ── Scrollbar ───────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--color-background); }
+::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-secondary); }
+
+/* ── Responsive Typography ───────────────────────────────────────── */
+@media (max-width: 1023px) {
+  h1 { font-size: 52px; letter-spacing: -1.5px; }
+  h2 { font-size: 36px; }
+  .section { padding: var(--section-spacing-tablet) 0; }
+  .section-header { margin-bottom: 44px; }
+}
+
+@media (max-width: 767px) {
+  h1 { font-size: 38px; letter-spacing: -1px; }
+  h2 { font-size: 30px; }
+  h3 { font-size: 18px; }
+  p  { font-size: 15px; }
+  .section { padding: var(--section-spacing-mobile) 0; }
+  .section-header { margin-bottom: 36px; }
+  .container { padding: 0 12px; }
+  .eyebrow { font-size: 11px; }
+}
+
+@media (max-width: 374px) {
+  h1 { font-size: 32px; }
+}
+

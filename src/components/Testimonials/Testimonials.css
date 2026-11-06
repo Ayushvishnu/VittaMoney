@@ -1,0 +1,966 @@
+/* Testimonials Section */
+.testimonials__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.testimonial-card {
+  position: relative;
+  padding: 28px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0;
+}
+
+.testimonial-card__quote-mark {
+  font-family: Georgia, serif;
+  font-size: 64px;
+  line-height: 0.8;
+  color: var(--color-secondary);
+  opacity: 0.5;
+  position: absolute;
+  top: 16px;
+  left: 20px;
+}
+
+.testimonial-card__text {
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--color-text-primary);
+  font-style: normal;
+  padding-top: 24px;
+}
+
+.testimonial-card__footer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--color-border);
+}
+
+.testimonial-card__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  color: var(--color-text-inverse);
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.testimonial-card__name {
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.testimonial-card__role {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  margin-top: 2px;
+}
+
+@media (max-width: 1023px) {
+  .testimonials__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+
+@media (max-width: 599px) {
+  .testimonials__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+/* ==========================================
+   TESTIMONIALS SECTION
+========================================== */
+
+.testimonials-section {
+  overflow: hidden;
+}
+
+/* ==========================================
+   CAROUSEL WRAPPER
+========================================== */
+
+.testimonials-carousel-wrapper {
+  position: relative;
+  width: 100%;
+  margin-top: 35px;
+}
+
+.testimonials-swiper {
+  width: 100%;
+  padding: 12px 4px 25px;
+}
+
+.testimonials-swiper .swiper-wrapper {
+  align-items: stretch;
+}
+
+.testimonials-swiper .swiper-slide {
+  height: auto;
+  display: flex;
+}
+
+/* ==========================================
+   TESTIMONIAL CARD
+========================================== */
+
+.testimonial-card {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  width: 100%;
+  height: 100%;
+
+  margin: 0;
+  padding: 28px 24px 24px;
+
+  background: #FFFFFF;
+  border: 1px solid #ECDADC;
+  border-radius: 18px;
+
+  box-shadow: 0 8px 28px rgba(112, 43, 57, 0.05);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  border-color: #C57B89;
+  box-shadow: 0 15px 35px rgba(112, 43, 57, 0.10);
+}
+
+/* ==========================================
+   QUOTE MARK
+========================================== */
+
+.testimonial-card__quote-mark {
+  font-family: Georgia, serif;
+  font-size: 64px;
+  line-height: 0.8;
+
+  color: #C57B89;
+  opacity: 0.5;
+
+  position: absolute;
+  top: 16px;
+  left: 20px;
+}
+
+/* ==========================================
+   TESTIMONIAL TEXT
+========================================== */
+
+.testimonial-card__text {
+  flex: 1;
+
+  margin: 0;
+  padding-top: 24px;
+
+  font-size: 15px;
+  line-height: 1.8;
+  font-style: normal;
+
+  color: #302228;
+
+  overflow-wrap: anywhere;
+}
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+.testimonial-card__footer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding-top: 16px;
+
+  border-top: 1px solid #ECDADC;
+}
+
+/* ==========================================
+   AVATAR
+========================================== */
+
+.testimonial-card__avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 48px;
+  height: 48px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+  overflow: hidden;
+
+  background: #F8EDEF;
+  color: #8D3A4A;
+}
+
+.testimonial-card__avatar-img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.testimonial-card__avatar span {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.testimonial-card__name {
+  font-family: var(--font-heading);
+
+  font-size: 14px;
+  font-weight: 700;
+
+  color: #302228;
+}
+
+.testimonial-card__role {
+  margin-top: 4px;
+
+  font-size: 12px;
+  color: #796B70;
+}
+
+/* ==========================================
+   CAROUSEL CONTROLS
+========================================== */
+
+.testimonials-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  margin-top: 18px;
+}
+
+/* PAGINATION */
+
+.testimonials-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+}
+
+.testimonials-pagination .swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+
+  background: #C57B89;
+  opacity: 0.4;
+
+  border-radius: 50%;
+
+  transition: all 0.3s ease;
+}
+
+.testimonials-pagination .swiper-pagination-bullet-active {
+  width: 24px;
+  border-radius: 10px;
+
+  background: #8D3A4A;
+  opacity: 1;
+}
+
+/* ARROWS */
+
+.testimonials-arrows {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.testimonials-prev,
+.testimonials-next {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 43px;
+  height: 43px;
+
+  border: 1px solid #ECDADC;
+  border-radius: 50%;
+
+  background: #FFFFFF;
+  color: #8D3A4A;
+
+  font-size: 14px;
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+.testimonials-prev:hover,
+.testimonials-next:hover {
+  background: #8D3A4A;
+  border-color: #8D3A4A;
+  color: #FFFFFF;
+}
+
+.testimonials-prev.swiper-button-disabled,
+.testimonials-next.swiper-button-disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ==========================================
+   LOADING / ERROR / EMPTY
+========================================== */
+
+.testimonials-api-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  min-height: 180px;
+  padding: 30px;
+
+  text-align: center;
+  color: #796B70;
+}
+
+.testimonials-api-state i {
+  font-size: 25px;
+  color: #8D3A4A;
+}
+
+.testimonials-api-state p {
+  margin: 0;
+  font-size: 14px;
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 1023px) {
+  .testimonial-card {
+    padding: 25px 22px;
+  }
+}
+
+@media (max-width: 599px) {
+  .testimonials-carousel-wrapper {
+    margin-top: 25px;
+  }
+
+  .testimonials-swiper {
+    padding-bottom: 18px;
+  }
+
+  .testimonial-card {
+    padding: 24px 20px;
+  }
+
+  .testimonial-card__text {
+    font-size: 14px;
+  }
+
+  .testimonials-controls {
+    margin-top: 12px;
+  }
+
+  .testimonials-prev,
+  .testimonials-next {
+    width: 38px;
+    height: 38px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =====================FAQ======================== */
+
+/* ==========================================
+   VITTAMONEY FAQ SECTION
+   REFERENCE INSPIRED DESIGN
+========================================== */
+
+.news-faq-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+
+  background: #FBF7F8;
+  isolation: isolate;
+}
+
+/* ==========================================
+   SECTION SPACING
+========================================== */
+
+.news-faq-wrapper .faq-section {
+  position: relative;
+  z-index: 1;
+
+  padding: 5px 0 110px;
+}
+
+.news-faq-wrapper .faq-section > .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* ==========================================
+   BACKGROUND GLOW
+========================================== */
+
+.news-faq-wrapper .nf-green-glow {
+  position: absolute;
+  left: -180px;
+  bottom: -180px;
+
+  width: 480px;
+  height: 480px;
+
+  background: radial-gradient(
+    circle,
+    rgba(141, 58, 74, 0.13) 0%,
+    rgba(141, 58, 74, 0.05) 40%,
+    transparent 75%
+  );
+
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.news-faq-wrapper .faq-blue-glow {
+  position: absolute;
+  right: -200px;
+  bottom: -200px;
+
+  width: 480px;
+  height: 480px;
+
+  background: radial-gradient(
+    circle,
+    rgba(197, 123, 137, 0.14) 0%,
+    rgba(197, 123, 137, 0.05) 45%,
+    transparent 75%
+  );
+
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ==========================================
+   LEFT SIDE CONTENT
+========================================== */
+
+.news-faq-wrapper .faq-left-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  padding: 0 15px 0 0;
+}
+
+/* FAQ BADGE */
+
+.news-faq-wrapper .faq-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 100px;
+  padding: 10px 23px;
+  margin-bottom: 42px;
+
+  background: #FFFFFF;
+
+  border: 1px solid #8D3A4A;
+  border-radius: 50px;
+
+  color: #8D3A4A;
+
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+}
+
+/* ==========================================
+   LARGE FAQ HEADING
+========================================== */
+
+.news-faq-wrapper .faq-title {
+  margin: 0 0 28px;
+  padding: 0;
+
+  color: #302228 !important;
+
+  font-family: var(--font-heading, inherit);
+  font-size: clamp(37px, 4vw, 57px);
+  font-weight: 800;
+
+  line-height: 1.17;
+  letter-spacing: -1.8px;
+
+  overflow-wrap: normal;
+}
+
+.news-faq-wrapper .faq-title span {
+  color: #8D3A4A !important;
+}
+
+/* DESCRIPTION */
+
+.news-faq-wrapper .faq-subtitle {
+  width: 100%;
+  max-width: 425px;
+
+  margin: 0;
+  padding: 0;
+
+  color: #796B70;
+
+  font-family: var(--font-body, inherit);
+  font-size: 15px;
+  font-weight: 400;
+
+  line-height: 1.9;
+}
+
+/* ==========================================
+   RIGHT SIDE ACCORDION
+========================================== */
+
+.news-faq-wrapper .faq-accordion {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  gap: 17px;
+
+  margin: 0;
+  padding: 0;
+
+  background: transparent;
+}
+
+/* ==========================================
+   FAQ CARD
+========================================== */
+
+.news-faq-wrapper .faq-accordion .faq-item {
+  position: relative;
+
+  width: 100%;
+  margin: 0;
+
+  overflow: hidden;
+
+  background: #FFFFFF !important;
+
+  border: 1px solid #DDC9CF !important;
+  border-radius: 15px !important;
+
+  box-shadow: none !important;
+
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.news-faq-wrapper .faq-accordion .faq-item:hover {
+  border-color: #C57B89 !important;
+  box-shadow: 0 6px 20px rgba(141, 58, 74, 0.05) !important;
+}
+
+/* ACTIVE CARD */
+
+.news-faq-wrapper .faq-accordion .faq-item.faq-item-active {
+  background: #FFFFFF !important;
+
+  border-color: #8D3A4A !important;
+
+  box-shadow: 0 8px 25px rgba(141, 58, 74, 0.07) !important;
+}
+
+/* ==========================================
+   FAQ QUESTION HEADER
+========================================== */
+
+.news-faq-wrapper .faq-accordion .accordion-header {
+  margin: 0;
+  padding: 0;
+}
+
+/* ==========================================
+   FAQ QUESTION BUTTON
+========================================== */
+
+.news-faq-wrapper .faq-accordion .faq-button {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+
+  width: 100% !important;
+  min-height: 60px;
+
+  gap: 18px;
+  padding: 17px 22px !important;
+
+  background: #FFFFFF !important;
+
+  border: none !important;
+  border-radius: 0 !important;
+
+  color: #56484D !important;
+
+  font-family: var(--font-body, inherit);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.6;
+
+  text-align: left;
+
+  box-shadow: none !important;
+  outline: none;
+
+  cursor: pointer;
+
+  transition:
+    color 0.25s ease,
+    background 0.25s ease;
+}
+
+/* REMOVE DEFAULT BOOTSTRAP ARROW */
+
+.news-faq-wrapper .faq-accordion .faq-button::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* HOVER */
+
+.news-faq-wrapper .faq-accordion .faq-button:hover {
+  color: #8D3A4A !important;
+  background: #FFFFFF !important;
+}
+
+/* ACTIVE BUTTON */
+
+.news-faq-wrapper .faq-accordion .faq-button:not(.collapsed) {
+  background: #FFFFFF !important;
+  color: #8D3A4A !important;
+  font-weight: 700;
+}
+
+/* FOCUS */
+
+.news-faq-wrapper .faq-accordion .faq-button:focus {
+  box-shadow: none !important;
+}
+
+.news-faq-wrapper .faq-accordion .faq-button:focus-visible {
+  outline: 2px solid #8D3A4A;
+  outline-offset: -3px;
+}
+
+/* QUESTION TEXT */
+
+.news-faq-wrapper .faq-question-text {
+  flex: 1;
+  min-width: 0;
+
+  color: inherit;
+
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
+/* ==========================================
+   ARROW ICON
+========================================== */
+
+.news-faq-wrapper .faq-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  width: 27px;
+  height: 27px;
+
+  padding: 0;
+
+  background: transparent !important;
+
+  border: none;
+  border-radius: 0;
+
+  color: #8D3A4A;
+
+  font-size: 13px;
+
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
+}
+
+.news-faq-wrapper .faq-arrow i {
+  display: inline-block;
+  font-size: inherit;
+  color: inherit;
+}
+
+/* ARROW ROTATION */
+
+.news-faq-wrapper .faq-button:not(.collapsed) .faq-arrow {
+  transform: rotate(90deg);
+  color: #8D3A4A;
+}
+
+/* ==========================================
+   FAQ ANSWER
+========================================== */
+
+.news-faq-wrapper .faq-accordion .accordion-collapse {
+  display: block;
+  width: 100%;
+}
+
+.news-faq-wrapper .faq-accordion .faq-body {
+  display: block;
+
+  padding: 0 22px 22px !important;
+
+  background: #FFFFFF !important;
+
+  color: #796B70;
+
+  font-family: var(--font-body, inherit);
+  font-size: 14px;
+  font-weight: 400;
+
+  line-height: 1.9;
+
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+
+  border: none;
+}
+
+/* ==========================================
+   FAQ LOADING / ERROR / EMPTY
+========================================== */
+
+.news-faq-wrapper .faq-api-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 13px;
+
+  min-height: 170px;
+  padding: 30px;
+
+  background: #FFFFFF;
+  border: 1px solid #DDC9CF;
+  border-radius: 15px;
+
+  text-align: center;
+
+  color: #796B70;
+}
+
+.news-faq-wrapper .faq-api-state i {
+  font-size: 24px;
+  color: #8D3A4A;
+}
+
+.news-faq-wrapper .faq-api-state p {
+  margin: 0;
+  font-size: 13px;
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 991px) {
+
+  .news-faq-wrapper .faq-section {
+    padding: 80px 0;
+  }
+
+  .news-faq-wrapper .faq-left-content {
+    padding-right: 0;
+  }
+
+  .news-faq-wrapper .faq-tag {
+    margin-bottom: 25px;
+  }
+
+  .news-faq-wrapper .faq-title {
+    font-size: 45px;
+    letter-spacing: -1.4px;
+  }
+
+  .news-faq-wrapper .faq-subtitle {
+    max-width: 100%;
+  }
+
+  .news-faq-wrapper .faq-accordion {
+    gap: 14px;
+  }
+
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 599px) {
+
+  .news-faq-wrapper .faq-section {
+    padding: 65px 0;
+  }
+
+  .news-faq-wrapper .faq-tag {
+    min-width: 80px;
+
+    margin-bottom: 24px;
+    padding: 9px 17px;
+
+    font-size: 11px;
+  }
+
+  .news-faq-wrapper .faq-title {
+    font-size: 35px;
+    line-height: 1.2;
+
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+  }
+
+  .news-faq-wrapper .faq-subtitle {
+    font-size: 13px;
+    line-height: 1.85;
+  }
+
+  .news-faq-wrapper .faq-accordion {
+    gap: 12px;
+  }
+
+  .news-faq-wrapper .faq-accordion .faq-item {
+    border-radius: 12px !important;
+  }
+
+  .news-faq-wrapper .faq-accordion .faq-button {
+    min-height: 60px;
+
+    gap: 10px;
+    padding: 16px !important;
+
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  .news-faq-wrapper .faq-arrow {
+    width: 23px;
+    height: 23px;
+
+    font-size: 11px;
+  }
+
+  .news-faq-wrapper .faq-accordion .faq-body {
+    padding: 0 16px 18px !important;
+
+    font-size: 12px;
+    line-height: 1.85;
+  }
+
+  .news-faq-wrapper .nf-green-glow {
+    width: 300px;
+    height: 300px;
+  }
+
+  .news-faq-wrapper .faq-blue-glow {
+    width: 300px;
+    height: 300px;
+  }
+
+}
+
+/* ==========================================
+   REDUCED MOTION
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .news-faq-wrapper *,
+  .news-faq-wrapper *::before,
+  .news-faq-wrapper *::after {
+    transition: none !important;
+  }
+
+}

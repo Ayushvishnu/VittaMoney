@@ -1,0 +1,9 @@
+/* ================================================================
+   App-level layout styles
+   Component-specific styles live in each component's CSS file
+   ================================================================ */
+
+main {
+  display: block;
+  width: 100%;
+}
