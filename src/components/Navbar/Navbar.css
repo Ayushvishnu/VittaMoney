@@ -128,7 +128,7 @@ letter-spacing: 1px;
   max-width: 190px;
 
   object-fit: contain;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 
   transition: transform 0.3s ease;
 }
