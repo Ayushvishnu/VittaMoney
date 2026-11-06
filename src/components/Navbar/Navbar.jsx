@@ -422,10 +422,11 @@ export default function Navbar() {
             }
           >
             <img
-              src="/images/VMLogo.png"
+              src="/images/VMLogo1.png"
               alt="VittaMoney"
               className="navbar__logo-img"
             />
+            <h1 className="vm">Vitta &nbsp;Money</h1>
           </a>
 
           {/* =====================================

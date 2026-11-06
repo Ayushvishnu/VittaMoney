@@ -2,7 +2,11 @@
 /* ==========================================
    VITTAMONEY NAVBAR
 ========================================== */
-
+.vm{
+font-size: 18px;
+font-weight: 550;
+letter-spacing: 1px;
+} 
 .navbar {
   position: fixed;
   top: 0;
@@ -124,6 +128,7 @@
   max-width: 190px;
 
   object-fit: contain;
+  margin-bottom: 12px;
 
   transition: transform 0.3s ease;
 }
