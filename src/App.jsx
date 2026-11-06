@@ -29,6 +29,9 @@ import Register from "./components/Auth/Register";
 import Portfolio from "./components/Portfolio/Portfolio";
 import DiwaliEffect from "./components/DiwaliEffect/DiwaliEffect";
 
+
+import Helpline from "./components/Helpline/Helpline";
+
 import "./App.css";
 
 // =========================================
@@ -285,6 +288,9 @@ const isAuthPage = ["/login", "/register"].includes(
     onNavigate={handleNavigate}
   />
 )}
+
+
+      <Helpline />
 
 
     </>

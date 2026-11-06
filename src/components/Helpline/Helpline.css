@@ -1,0 +1,441 @@
+
+/* ==========================================
+   VITTAMONEY FLOATING HELPLINE
+========================================== */
+
+.vm-floating-helpline {
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+  z-index: 1050;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 58px;
+  height: 58px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: linear-gradient(
+    135deg,
+    #9D4658,
+    #8D3A4A,
+    #702B39
+  );
+
+  color: white;
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 25px rgba(141, 58, 74, 0.3);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.vm-floating-helpline > svg {
+  position: relative;
+  z-index: 2;
+  width: 28px;
+  height: 28px;
+}
+
+.vm-floating-helpline:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 13px 32px rgba(141, 58, 74, 0.4);
+}
+
+/* PULSE EFFECT */
+
+.vm-floating-helpline-pulse {
+  position: absolute;
+  inset: -6px;
+
+  border: 2px solid rgba(141, 58, 74, 0.25);
+  border-radius: 50%;
+
+  animation: vmHelplinePulse 2.5s infinite;
+  pointer-events: none;
+}
+
+@keyframes vmHelplinePulse {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.9;
+  }
+
+  70% {
+    transform: scale(1.22);
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+/* TOOLTIP */
+
+.vm-floating-helpline-tooltip {
+  position: absolute;
+  right: 72px;
+
+  padding: 9px 13px;
+  border-radius: 9px;
+
+  background: #FFFFFF;
+  color: #702B39;
+
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(7px);
+
+  transition: all 0.3s ease;
+}
+
+.vm-floating-helpline:hover
+.vm-floating-helpline-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+
+/* ==========================================
+   MODAL OVERLAY
+========================================== */
+
+.vm-helpline-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  background: rgba(25, 12, 17, 0.6);
+  backdrop-filter: blur(6px);
+
+  animation: vmHelplineFade 0.25s ease;
+}
+
+@keyframes vmHelplineFade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* ==========================================
+   MODAL
+========================================== */
+
+.vm-helpline-modal {
+  width: 100%;
+  max-width: 440px;
+  max-height: calc(100dvh - 40px);
+
+  overflow-y: auto;
+
+  background: #FFFFFF;
+  border-radius: 20px;
+
+  box-shadow: 0 25px 65px rgba(0, 0, 0, 0.25);
+
+  animation: vmHelplineSlide 0.3s ease;
+}
+
+@keyframes vmHelplineSlide {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ==========================================
+   MODAL HEADER
+========================================== */
+
+.vm-helpline-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+
+  padding: 22px 24px;
+
+  background: linear-gradient(
+    135deg,
+    #9D4658,
+    #8D3A4A,
+    #702B39
+  );
+
+  color: #FFFFFF;
+}
+
+.vm-helpline-header-content {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.vm-helpline-header-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  width: 45px;
+  height: 45px;
+
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 13px;
+}
+
+.vm-helpline-header-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.vm-helpline-eyebrow {
+  display: block;
+  margin-bottom: 5px;
+
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.3px;
+  opacity: 0.8;
+}
+
+.vm-helpline-header h3 {
+  margin: 0;
+  color: #FFFFFF;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.vm-helpline-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  width: 32px;
+  height: 32px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.15);
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+.vm-helpline-close:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.vm-helpline-close svg {
+  width: 17px;
+  height: 17px;
+}
+
+/* ==========================================
+   MODAL BODY
+========================================== */
+
+.vm-helpline-body {
+  padding: 25px;
+}
+
+.vm-helpline-description {
+  margin: 0 0 23px;
+
+  color: #796B70;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+/* ==========================================
+   FORM FIELDS
+========================================== */
+
+.vm-helpline-field {
+  margin-bottom: 17px;
+}
+
+.vm-helpline-field label {
+  display: block;
+  margin-bottom: 7px;
+
+  color: #453038;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.vm-helpline-field input,
+.vm-helpline-field textarea {
+  width: 100%;
+  padding: 12px 14px;
+
+  background: #FFFCFD;
+  border: 1px solid #EADDE1;
+  border-radius: 10px;
+
+  color: #302228;
+  font-family: inherit;
+  font-size: 13px;
+
+  outline: none;
+
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.vm-helpline-field input:focus,
+.vm-helpline-field textarea:focus {
+  border-color: #8D3A4A;
+  box-shadow: 0 0 0 3px rgba(141, 58, 74, 0.10);
+}
+
+.vm-helpline-field textarea {
+  resize: vertical;
+  min-height: 95px;
+}
+
+.vm-helpline-field input::placeholder,
+.vm-helpline-field textarea::placeholder {
+  color: #A99BA0;
+}
+
+/* ==========================================
+   WHATSAPP SUBMIT
+========================================== */
+
+.vm-helpline-submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+
+  width: 100%;
+  min-height: 47px;
+
+  padding: 12px 17px;
+
+  background: #8D3A4A;
+  border: none;
+  border-radius: 11px;
+
+  color: #FFFFFF;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.vm-helpline-submit svg {
+  width: 19px;
+  height: 19px;
+}
+
+.vm-helpline-submit > span {
+  margin-left: auto;
+  font-size: 20px;
+}
+
+.vm-helpline-submit:hover {
+  background: #702B39;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(141, 58, 74, 0.2);
+}
+
+.vm-helpline-footer-text {
+  margin: 13px 0 0;
+
+  color: #95888D;
+  font-size: 10px;
+  text-align: center;
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 767px) {
+  .vm-floating-helpline {
+    width: 52px;
+    height: 52px;
+
+    right: 17px;
+    bottom: 17px;
+  }
+
+  .vm-floating-helpline > svg {
+    width: 25px;
+    height: 25px;
+  }
+
+  .vm-helpline-overlay {
+    padding: 12px;
+  }
+
+  .vm-helpline-modal {
+    max-width: 100%;
+    max-height: calc(100dvh - 24px);
+    border-radius: 16px;
+  }
+
+  .vm-helpline-header {
+    padding: 18px;
+  }
+
+  .vm-helpline-header h3 {
+    font-size: 18px;
+  }
+
+  .vm-helpline-body {
+    padding: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vm-floating-helpline,
+  .vm-floating-helpline-pulse,
+  .vm-helpline-overlay,
+  .vm-helpline-modal,
+  .vm-helpline-submit {
+    animation: none;
+    transition: none;
+  }
+}
